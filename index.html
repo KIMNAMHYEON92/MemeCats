@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>밈고양이 성격테스트 (MemeCats)</title>
+  
+  <!-- SEO & 메타태그 -->
+  <meta name="description" content="반려묘 상황극을 통해 알아보는 나의 인터넷 밈 고양이 영혼 유형! 팝캣, 바나나캣, 맥스웰 중 당신의 고양이는?" />
+  <meta name="keywords" content="고양이 성격테스트, 밈고양이, 팝캣, 바나나캣, 맥스웰, 심리테스트, MBTI, 고양이 밈" />
+  <meta name="author" content="KIMNAMHYEON92" />
+
+  <!-- Open Graph / 페이스북, 카카오톡 미리보기 -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="밈고양이 성격테스트 - 내 안의 밈고양이 찾기" />
+  <meta property="og:description" content="반려묘 상황극을 통해 알아보는 나의 밈고양이 영혼 유형! 당신의 뇌 속엔 어떤 밈고양이가 살고 있을까요?" />
+  <meta property="og:image" content="assets/images/cats/popcat.webp" />
+  <meta property="og:url" content="https://memecats.netlify.app" />
+
+  <!-- Twitter 카드 -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="밈고양이 성격테스트 (MemeCats)" />
+  <meta name="twitter:description" content="반려묘 상황극으로 알아보는 나의 밈고양이 성격 유형!" />
+  <meta name="twitter:image" content="assets/images/cats/popcat.webp" />
+
+  <!-- 파비콘 (고양이 이모지 SVG) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>" />
+
+  <!-- 스타일시트 연결 -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- 전체 레이아웃 래퍼 (모바일 카드 중심) -->
+  <div class="app-container">
+
+    <!-- 상단 롤링 프로모션 배너 -->
+    <aside class="promo-banner-wrapper" aria-label="네트워크 프로모션">
+      <div id="promo-banner-top" class="promo-banner">
+        <a id="promo-link" href="https://majestic-piroshki-4e94c7.netlify.app" target="_blank" rel="noopener noreferrer">
+          <span class="banner-badge">PROMO</span>
+          <span id="promo-text" class="banner-text">🍀 LottoPick: 글로벌 복권 번호 생성기 [이동]</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- 메인 콘텐츠 영역 -->
+    <main class="main-content">
+
+      <!-- ================= 1. 시작 화면 ================= -->
+      <section id="screen-start" class="screen active">
+        <div class="start-content">
+          <div class="badge-pill">🐾 2026 밈고양이 영혼 판독기</div>
+          <h1 class="main-title">
+            내 안의<br />
+            <span class="gradient-text">밈고양이 찾기</span>
+          </h1>
+          <p class="main-subtitle">
+            기상천외한 반려묘 상황극으로 알아보는<br />
+            나의 인터넷 밈 고양이 영혼 유형 테스트
+          </p>
+
+          <div class="hero-character-preview">
+            <div class="cat-avatar-bubble">
+              <img src="assets/images/cats/popcat.webp" alt="대표 밈고양이 팝캣" class="floating-cat" onerror="this.src='https://imgur.com/TBlAmJo.png'" />
+            </div>
+            <div class="stats-preview-tag">총 9문항 · 소요시간 2분 · 8가지 밈고양이</div>
+          </div>
+
+          <button id="btn-start" class="btn btn-primary btn-bounce" type="button">
+            <span>테스트 시작하기</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ================= 2. 질문 화면 ================= -->
+      <section id="screen-quiz" class="screen">
+        <!-- 상단 헤더: 진행률 바 & 카운터 -->
+        <header class="quiz-header">
+          <div class="quiz-meta">
+            <span id="quiz-axis-tag" class="axis-tag">사회성 지표</span>
+            <span id="quiz-counter" class="counter-text">1 / 9</span>
+          </div>
+          <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div id="progress-bar" class="progress-fill"></div>
+          </div>
+        </header>
+
+        <!-- 상황극 질문 카드 -->
+        <div class="quiz-body">
+          <div class="question-card">
+            <span class="situation-icon">🚨 상황 발생!</span>
+            <h2 id="question-situation" class="question-text">
+              집사가 사전 예고도 없이 친구들을 우르르 데려와 거실에서 홈파티를 시작했다!
+            </h2>
+          </div>
+
+          <!-- A / B 선택지 영역 -->
+          <div class="choices-container">
+            <button id="choice-a" class="choice-btn" type="button" data-choice="A">
+              <span class="choice-label">A</span>
+              <span class="choice-text">선택지 내용 A</span>
+            </button>
+            <button id="choice-b" class="choice-btn" type="button" data-choice="B">
+              <span class="choice-label">B</span>
+              <span class="choice-text">선택지 내용 B</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 3. 로딩 (분석 중) 화면 ================= -->
+      <section id="screen-loading" class="screen">
+        <div class="loading-content">
+          <div class="cat-spinner-box">
+            <div class="paw-icon">🐾</div>
+            <div class="cat-spinner">🐱</div>
+          </div>
+          <h2 class="loading-title">영혼 분석 중...</h2>
+          <p id="loading-quote" class="loading-quote">고양이 털 날리는 중...</p>
+        </div>
+      </section>
+
+      <!-- ================= 4. 결과 화면 ================= -->
+      <section id="screen-result" class="screen">
+        <!-- 스크린샷 캡처 및 공유 카드 영역 -->
+        <article class="result-card" id="capture-area">
+          <header class="result-header">
+            <div class="type-code-badge" id="res-type-code">ECS</div>
+            <p class="result-subtitle" id="res-subtitle">24시간 텐션 폭발 무한 입벌림 파티냥</p>
+            <h2 class="result-name" id="res-name">팝캣 (Popcat)</h2>
+            <p class="result-english" id="res-english">Popcat</p>
+          </header>
+
+          <div class="result-image-box">
+            <img id="res-image" src="" alt="결과 고양이 이미지" class="result-cat-img" />
+          </div>
+
+          <div class="result-summary-box">
+            <p id="res-summary" class="summary-text">"어디서나 존재감을 뿜어내며 어떤 잔소리에도 타격 없는 파티광"</p>
+          </div>
+
+          <section class="result-desc-section">
+            <h3 class="section-title">🐱 성격 집중 탐구</h3>
+            <p id="res-description" class="desc-text"></p>
+          </section>
+
+          <!-- 장단점 그리드 -->
+          <div class="pros-cons-grid">
+            <div class="trait-box pros-box">
+              <h4 class="trait-title">✨ 매력 포인트 (Pros)</h4>
+              <ul id="res-pros" class="trait-list"></ul>
+            </div>
+            <div class="trait-box cons-box">
+              <h4 class="trait-title">⚠️ 주의할 점 (Cons)</h4>
+              <ul id="res-cons" class="trait-list"></ul>
+            </div>
+          </div>
+
+          <!-- 인생 꿀팁 박스 -->
+          <div class="life-tip-box">
+            <h4 class="tip-title">💡 냥생 맞춤 솔루션</h4>
+            <p id="res-lifetip" class="tip-text"></p>
+          </div>
+
+          <!-- 케미 궁합 분석 -->
+          <div class="match-container">
+            <div class="match-card best-match">
+              <div class="match-tag">❤️ 환상의 집사 짝꿍</div>
+              <h5 id="best-match-name" class="match-name"></h5>
+              <p id="best-match-reason" class="match-reason"></p>
+            </div>
+            <div class="match-card worst-match">
+              <div class="match-tag">⚡ 환장의 파멸 짝꿍</div>
+              <h5 id="worst-match-name" class="match-name"></h5>
+              <p id="worst-match-reason" class="match-reason"></p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 결과 화면 액션 버튼 그룹 -->
+        <div class="result-actions">
+          <button id="btn-share" class="btn btn-primary" type="button">
+            <span>🔗 친구에게 결과 공유하기</span>
+          </button>
+          <button id="btn-copy" class="btn btn-secondary" type="button">
+            <span>📋 결과 링크 복사하기</span>
+          </button>
+          <button id="btn-retry" class="btn btn-outline" type="button">
+            <span>🔄 테스트 다시하기</span>
+          </button>
+        </div>
+
+        <!-- 하단 보조 롤링 배너 -->
+        <div class="bottom-ad-slot">
+          <a id="promo-link-bottom" href="https://github.com/KIMNAMHYEON92/MemeCats" target="_blank" rel="noopener noreferrer" class="promo-sub-banner">
+            <span class="sub-banner-badge">OPEN SOURCE</span>
+            <span id="promo-text-bottom" class="sub-banner-text">💻 이 서비스의 소스코드가 궁금하다면? [방문]</span>
+          </a>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- 최하단 공통 푸터 -->
+    <footer class="app-footer">
+      <div class="footer-links">
+        <a href="https://ko-fi.com/emhsolo" target="_blank" rel="noopener noreferrer" class="footer-link coffee-link">
+          ☕ Buy Me a Coffee
+        </a>
+        <span class="divider">|</span>
+        <a href="https://github.com/KIMNAMHYEON92" target="_blank" rel="noopener noreferrer" class="footer-link lab-link">
+          🧪 Developer's Lab
+        </a>
+        <span class="divider">|</span>
+        <a href="https://github.com/KIMNAMHYEON92/MemeCats" target="_blank" rel="noopener noreferrer" class="footer-link github-link">
+          GitHub
+        </a>
+      </div>
+      <p class="copyright">© 2026 MemeCats. All memes belong to their respective creators.</p>
+    </footer>
+
+  </div>
+
+  <!-- 토스트 알림 메시지 (클립보드 복사 등) -->
+  <div id="toast" class="toast" role="status" aria-live="polite">결과 링크가 복사되었습니다!</div>
+
+  <!-- 스크립트 연결 -->
+  <script src="script.js"></script>
+</body>
+</html>
